@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="858.0" style="-fx-background-color: #131619;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.weatherinfo.HelloController">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="472.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" layoutX="81.0" layoutY="108.0" prefHeight="576.0" prefWidth="305.0" style="-fx-background-color: #2D2A54;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane prefHeight="577.0" prefWidth="306.0">
+                     <children>
+                        <Label fx:id="cityname" layoutX="60.0" layoutY="11.0" prefHeight="74.0" prefWidth="186.0" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="11.0">
+                           <font>
+                              <Font name="System Bold" size="35.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="68.0" layoutY="73.0" text="Timezone:-" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="timezone" layoutX="153.0" layoutY="73.0" text="Time" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="68.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/Sun.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="121.0" layoutY="363.0" text="22" textFill="WHITE">
+                           <font>
+                              <Font size="45.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="currentweather" layoutX="87.0" layoutY="429.0" text="Current Weather" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <AnchorPane layoutX="310.0" layoutY="-1.0" prefHeight="576.0" prefWidth="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="308.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <TextField fx:id="Searchinput" focusTraversable="false" layoutX="124.0" layoutY="25.0" onAction="#onHelloButtonClick" prefHeight="39.0" prefWidth="302.0" promptText="Search" style="-fx-background-radius: 30; -fx-border-radius: 0;" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="25.0">
+                     <font>
+                        <Font name="SansSerif Regular" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
+                  </TextField>
+                  <ImageView fitHeight="32.0" fitWidth="25.0" layoutX="130.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/locationicon.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="55.0" layoutY="137.0" text="Today’s Highlights" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Line endX="176.0" endY="0.4000091552734375" fill="WHITE" layoutX="55.0" layoutY="167.0" startX="5.399993896484375" startY="-1.52587890625E-5" stroke="WHITE" />
+                  <VBox layoutX="55.0" layoutY="192.0" prefHeight="232.0" prefWidth="278.0" style="-fx-background-color: #2D2A54; -fx-background-radius: 30;" AnchorPane.leftAnchor="55.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="278.0">
+                           <children>
+                              <ImageView fitHeight="73.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/windicon.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="8.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label alignment="CENTER" prefHeight="86.0" prefWidth="195.0" text="Wind Status" textFill="WHITE">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Label text="Today wind speed" textFill="WHITE">
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="windspeed" alignment="CENTER" prefHeight="89.0" prefWidth="94.0" text="12" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="82.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="32.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
