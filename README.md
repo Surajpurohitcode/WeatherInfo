@@ -60,7 +60,6 @@ To copy this repo
 
 
 ## Demo
-
-Update soon!
+ - [Download exe file](https://drive.google.com/file/d/11kXRdAacfjoJ8iEY3EcTj0nU-AcDd0cq/view?usp=drive_link)
 
 
