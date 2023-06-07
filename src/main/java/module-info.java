@@ -7,6 +7,7 @@ module com.example.weatherinfo {
     requires okhttp3;
     requires com.google.gson;
     requires org.json;
+    requires java.desktop;
 
     opens com.example.weatherinfo to javafx.fxml;
     exports com.example.weatherinfo;

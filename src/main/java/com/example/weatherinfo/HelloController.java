@@ -11,11 +11,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.internal.ws.RealWebSocket;
 import org.json.*;
-
-
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.Objects;
+
+
 
 public class HelloController {
     @FXML
@@ -32,6 +30,20 @@ public class HelloController {
 
     @FXML
     private Label windspeed;
+    @FXML
+    private Label country;
+    @FXML
+    private Label state;
+    @FXML
+    private Label temp;
+    @FXML
+    private Label humidity;
+    @FXML
+    private Label last_updated;
+
+    @FXML
+    private ImageView weatherimage;
+    String apiKey = "002086817c6920c2dd802bdf06b9e0a3";
 
     @FXML
     protected void onHelloButtonClick() throws IOException {
@@ -41,26 +53,23 @@ public class HelloController {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("https://open-weather13.p.rapidapi.com/city/"+cityinput)
-                .get()
-                .addHeader("X-RapidAPI-Key", "28f64ecfe6msh712bebd1d1cf067p1c139ajsn6d2673c07f02")
-                .addHeader("X-RapidAPI-Host", "open-weather13.p.rapidapi.com")
+                .url("http://api.weatherapi.com/v1/current.json?key=1d7ca7ca665c4e3ba69130346230706&q="+cityname+"&aqi=no")
                 .build();
 
         Response response = client.newCall(request).execute();
         String data = response.body().string();
         JSONObject obj = new JSONObject(data);
-        JSONArray arr = obj.getJSONArray("weather");
-        for (int i = 0; i < arr.length(); i++)
-        {
-            String cw = arr.getJSONObject(i).getString("description");
-            currentweather.setText(cw);
-        }
-        JSONArray array = obj.getJSONArray("visibility");
-        for (int i = 0; i < arr.length(); i++)
-        {
-            String wind = arr.getJSONObject(i).getString("speed");
-            windspeed.setText(wind);
-        }
+        String cw = obj.getJSONObject("current").getJSONObject("condition").get("text").toString();
+        currentweather.setText(cw);
+        String time = obj.getJSONObject("location").get("localtime").toString();
+        timezone.setText(time);
+        String wind  = obj.getJSONObject("current").get("wind_kph").toString();
+        windspeed.setText(wind+"km");
+        country.setText(obj.getJSONObject("location").get("country").toString());
+        state.setText(obj.getJSONObject("location").get("region").toString());
+        temp.setText(obj.getJSONObject("current").get("temp_c").toString());
+        humidity.setText(obj.getJSONObject("current").get("humidity").toString());
+        last_updated.setText(obj.getJSONObject("current").get("last_updated").toString());
+
     }
 }
